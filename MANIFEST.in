@@ -1,0 +1,4 @@
+include README.md
+recursive-include octoprint_cooldownfan/templates *
+recursive-include octoprint_cooldownfan/translations *
+recursive-include octoprint_cooldownfan/static *
