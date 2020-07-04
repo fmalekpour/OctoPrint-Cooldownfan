@@ -1,9 +1,9 @@
 <h4>{{ _('Cooldown Fan') }}</h4>
-<form class="form-horizontal">
+<form id="cooldownfan_settings" class="form-horizontal">
     <div class="control-group">
         <label class="control-label">{{ _('Pin Cooldown:') }}</label>
         <div class="controls" data-toggle="tooltip" title="{{ _('Which Raspberry Pi GPIO pin (BCM Mode) your cooldown fan relay or mosfet is attached to.') }}">
-			<select data-bind="value: settings.plugins.cooldownfan.pin_cooldown">
+			<select id="pinCooldown" data-bind="value: settingsViewModel.settings.plugins.cooldownfan.pin_cooldown">
 				<option value="-1">Disabled</option>
 				<option value="4>GPIO 4</option>
 				<option value="5">GPIO 5</option>
@@ -27,7 +27,62 @@
         </div>
     </div>
 
+    <div class="control-group">
+        <label class="control-label">{{ _('Run time:') }}</label>
+        <div class="controls" data-toggle="tooltip" title="{{ _('When printing finished, run the external cooldown fan for this amount of time.') }}">
+			<select id="runTime" data-bind="value: settingsViewModel.settings.plugins.cooldownfan.run_time">
+				<option value="10">10 Seconds</option>
+				<option value="20">20 Seconds</option>
+				<option value="30">30 Seconds</option>
+				<option value="60">1 Minute</option>
+				<option value="120">2 Minutes</option>
+				<option value="180">3 Minutes</option>
+				<option value="240">4 Minutes</option>
+				<option value="300">5 Minutes</option>
+				<option value="360">6 Minutes</option>
+				<option value="420">7 Minutes</option>
+				<option value="480">8 Minutes</option>
+				<option value="540">9 Minutes</option>
+				<option value="600">10 Minutes</option>
+				<option value="900">15 Minutes</option>
+				<option value="1200">20 Minutes</option>
+				<option value="1800">30 Minutes</option>
+				<option value="3600">60 Minutes</option>
+			</select>
+			<div class="help-block">{{ _('When printing finished, run the external cooldown fan for this amount of time.') }}</div>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label">{{ _('Normal State:') }}</label>
+        <div class="controls" data-toggle="tooltip" title="{{ _('State of the GPIO pin when fan is OFF.') }}">
+			<select id="normalState" data-bind="value: settingsViewModel.settings.plugins.cooldownfan.normal_state">
+				<option value="0">LOW</option>
+				<option value="1">HIGH</option>
+			</select>
+			<div class="help-block">{{ _('State of the GPIO pin when fan is OFF.') }}</div>
+        </div>
+    </div>
+
+
+
 	<div>
+		<table style="margin-left: 180px; margin-top: 20px">
+			<tr>
+				<td>
+					<input type="button" class="btn" data-bind="click: cooldownFanON" value="Fan ON">
+				</td>
+				<td style="padding-left: 10px">
+					<input type="button" class="btn" data-bind="click: cooldownFanOFF" value="Fan OFF">
+				</td>
+				<td style="padding-left: 10px">
+					<p id="cooldown-fan-result-text" data-bind="text: testResult" style="display: inline;"></p>
+				</td>
+			</tr>
+		</table>
+	</div>
+
+	<div style="margin-top: 20px">
 		<a target="_blank" href="https://www.raspberrypi.org/documentation/usage/gpio/">{{ _('Raspberry Pi GPIO Pinout') }}</a>
 	</div>
 
