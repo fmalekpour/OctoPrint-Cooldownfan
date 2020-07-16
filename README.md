@@ -2,7 +2,7 @@
 
 At the end of printing, I had to wait a long time for hotbed to cool down in order to remove the print. So I attached two large fan to top of the printer, connected them to a relay module and signalled it from GPIO on Raspberry Pi. This plugin controlls the relay module and turns ON the fan for defined amount of time at the end of printing.
 
-<img src="https://github.com/fmalekpour/OctoPrint-Cooldownfan/blob/master/screenshots/gpio-cooldownfan_bb.jpg?raw=true" width="500px">
+<img src="/screenshots/gpio-cooldownfan_bb.jpg?raw=true" width="500px">
 
 <img src="https://github.com/fmalekpour/OctoPrint-Cooldownfan/blob/master/screenshots/fan.jpg?raw=true" width="500px">
 
