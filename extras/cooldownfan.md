@@ -30,6 +30,10 @@ screenshots:
 - url: https://github.com/fmalekpour/OctoPrint-Cooldownfan/blob/master/screenshots/gpio-cooldownfan_bb.jpg?raw=true
   alt: External Fan Schematic
   caption: External Fan Schematic
+- url: https://github.com/fmalekpour/OctoPrint-Cooldownfan/blob/master/screenshots/fan.jpg?raw=true
+  alt: Sample cool down fan
+  caption: Sample cool down fan
+  
 
 
 
