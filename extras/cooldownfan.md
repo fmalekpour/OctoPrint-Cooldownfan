@@ -7,94 +7,77 @@ description: Turn on the cooldown fan after prining finished
 author: Farhad Malekpour
 license: AGPLv3
 
-# TODO
-date: today's date in format YYYY-MM-DD, e.g. 2015-04-21
+date: 2020-07-15
 
 homepage: https://github.com/fmalekpour/OctoPrint-Cooldownfan
 source: https://github.com/fmalekpour/OctoPrint-Cooldownfan
 archive: https://github.com/fmalekpour/OctoPrint-Cooldownfan/archive/master.zip
 
-# TODO
-# Set this to true if your plugin uses the dependency_links setup parameter to include
-# library versions not yet published on PyPi. SHOULD ONLY BE USED IF THERE IS NO OTHER OPTION!
-#follow_dependency_links: false
+follow_dependency_links: false
 
-# TODO
 tags:
-- a list
-- of tags
-- that apply
-- to your plugin
-- (take a look at the existing plugins for what makes sense here)
+- GPIO
+- Cool down
+- Fan
+- External Fan
+- Cool Down Fan
 
-# TODO
+
 screenshots:
-- url: url of a screenshot, /assets/img/...
-  alt: alt-text of a screenshot
-  caption: caption of a screenshot
-- url: url of another screenshot, /assets/img/...
-  alt: alt-text of another screenshot
-  caption: caption of another screenshot
-- ...
+- url: https://github.com/fmalekpour/OctoPrint-Cooldownfan/blob/master/screenshots/cool-down-fan-config-screen.jpg?raw=true
+  alt: Configuration Screen
+  caption: Configuration Screen
+- url: https://github.com/fmalekpour/OctoPrint-Cooldownfan/blob/master/screenshots/gpio-cooldownfan_bb.jpg?raw=true
+  alt: External Fan Schematic
+  caption: External Fan Schematic
 
-# TODO
-featuredimage: url of a featured image for your plugin, /assets/img/...
 
-# TODO
-# You only need the following if your plugin requires specific OctoPrint versions or
-# specific operating systems to function - you can safely remove the whole
-# "compatibility" block if this is not the case.
+
+featuredimage: https://github.com/fmalekpour/OctoPrint-Cooldownfan/blob/master/screenshots/cool-down-fan-config-screen.jpg?raw=true
 
 compatibility:
-
-  # List of compatible versions
-  #
-  # A single version number will be interpretated as a minimum version requirement,
-  # e.g. "1.3.1" will show the plugin as compatible to OctoPrint versions 1.3.1 and up.
-  # More sophisticated version requirements can be modelled too by using PEP440
-  # compatible version specifiers.
-  #
-  # You can also remove the whole "octoprint" block. Removing it will default to all
-  # OctoPrint versions being supported.
+  python: ">=2.7,<4"
 
   octoprint:
-  - 1.2.0
-
-  # List of compatible operating systems
-  #
-  # Valid values:
-  #
-  # - windows
-  # - linux
-  # - macos
-  # - freebsd
-  #
-  # There are also two OS groups defined that get expanded on usage:
-  #
-  # - posix: linux, macos and freebsd
-  # - nix: linux and freebsd
-  #
-  # You can also remove the whole "os" block. Removing it will default to all
-  # operating systems being supported.
-
+  - 1.3.0
+ 
   os:
   - linux
-  - windows
-  - macos
-  - freebsd
-  
-  # Compatible Python version
-  #
-  # Plugins should aim for compatibility for Python 2 and 3 for now, in which case the value should be ">=2.7,<4".
-  #
-  # Plugins that only wish to support Python 3 should set it to ">=3,<4". 
-  #
-  # If your plugin only supports Python 2 (worst case, not recommended for newly developed plugins since Python 2
-  # is EOL), leave at ">=2.7,<3"
-  
-  python: ">=2.7,<3"
-
 ---
 
-**TODO**: Longer description of your plugin, configuration examples etc. This part will be visible on the page at
-http://plugins.octoprint.org/plugin/cooldownfan/
+#### Description
+
+At the end of printing, I had to wait a long time for hotbed to cool down in order to remove the print. So I attached two large fan to top of the printer, connected them to a relay module and signalled it from GPIO on Raspberry Pi. This plugin controlls the relay module and turns ON the fan for defined amount of time at the end of printing.
+
+<img src="https://github.com/fmalekpour/OctoPrint-Cooldownfan/blob/master/screenshots/gpio-cooldownfan_bb.jpg?raw=true" width="500px">
+
+
+## Setup
+
+Install via the bundled [Plugin Manager](https://docs.octoprint.org/en/master/bundledplugins/pluginmanager.html)
+or manually using this URL:
+
+    https://github.com/fmalekpour/OctoPrint-Cooldownfan/archive/master.zip
+
+
+
+## Configuration
+
+In web interface, install the plugin and reload if necessary, then click on GPIO Shutdown, you will have:
+
+- Pin Cooldown: Which Raspberry Pi GPIO pin (BCM Mode) your cooldown fan relay or mosfet is attached to.
+- Run time: When printing finished, run the external cooldown fan for this amount of time.
+- Normal State: State of the GPIO pin when fan is OFF.
+
+In configuration screen, there are two buttons (Fan ON and Fan OFF) to test the fan functionality.
+
+<img src="https://github.com/fmalekpour/OctoPrint-Cooldownfan/blob/master/screenshots/cool-down-fan-config-screen.jpg?raw=true" width="500px">
+
+You can find the GPIO pin number assignments at [Raspberry Pi GPIO Pinout](https://www.raspberrypi.org/documentation/usage/gpio/).
+
+
+#### Support me
+
+This plugin was developed in my spare time.
+If you find it useful and like it [Buy me a beer](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WHCDYE3DCBW2Y&source=url), cheers :)
+
