@@ -4,6 +4,8 @@ At the end of printing, I had to wait a long time for hotbed to cool down in ord
 
 <img src="https://github.com/fmalekpour/OctoPrint-Cooldownfan/blob/master/screenshots/gpio-cooldownfan_bb.jpg?raw=true" width="500px">
 
+<img src="https://github.com/fmalekpour/OctoPrint-Cooldownfan/blob/master/screenshots/fan.jpg?raw=true" width="500px">
+
 
 ## Setup
 
